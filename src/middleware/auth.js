@@ -7,12 +7,12 @@ function authenticateToken(req, res, next) {
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
-    return res.status(401).json({ error: 'Authentication token required' });
+    return res.status(401).json({ error: 'Authentication token richiesto' });
   }
 
   jwt.verify(token, SECRET_KEY, (err, user) => {
     if (err) {
-      return res.status(403).json({ error: 'Invalid or expired token' });
+      return res.status(403).json({ error: 'Token non valido o scaduto' });
     }
     req.user = user;
     next();

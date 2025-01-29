@@ -20,6 +20,7 @@ const validation = require('../middleware/validation');
  *             required:
  *               - nome
  *               - email
+ *               - password
  *             properties:
  *               nome:
  *                 type: string
@@ -43,7 +44,7 @@ router.post('/', validation.validateUser, userController.createUser);
  *   get:
  *     security:
  *       - bearerAuth: []
- *     summary: Ottieni utente per ID
+ *     summary: Ottieni utente tramite ID
  *     tags: [Utenti]
  *     parameters:
  *       - in: path
