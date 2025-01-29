@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 let token;
 
-const testEmail = "tomas@test.com"
+const testEmail = "ciao@test.com"
 
 describe('Authentication Endpoints', () => {
   it('dovrebbe registrare un utente', async () => {
