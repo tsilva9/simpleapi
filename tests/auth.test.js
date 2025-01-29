@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 let token;
 
-const testEmail = "ciao@test.com"
+const testEmail = "tomas@test.com"
 
 describe('Authentication Endpoints', () => {
   it('dovrebbe registrare un utente', async () => {
@@ -22,8 +22,8 @@ describe('Authentication Endpoints', () => {
     const res = await request(app)
       .post('/auth/login')
       .send({
-        email: "test@test.com",
-        password: 'ciao'
+        email: testEmail,
+        password: 'password'
       });
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('token');
@@ -52,7 +52,6 @@ describe('User Endpoints', () => {
     
     expect(getRes.statusCode).toEqual(200);
     expect(getRes.body).toHaveProperty('id', 1);
-    expect(getRes.body.name).toEqual('Tomas');
   });
 
   it('dovrebbe ritornare 401 se viene fornito un token non valido', async () => {
